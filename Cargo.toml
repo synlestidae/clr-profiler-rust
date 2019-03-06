@@ -1,0 +1,17 @@
+[package]
+name = "clr-profiler-rust"
+version = "0.1.0"
+authors = ["Maté Antunovic <mate@raygun.com>"]
+edition = "2018"
+
+
+[lib]
+crate-type = ["dylib"]
+
+[profile.debug]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+
+[dependencies]

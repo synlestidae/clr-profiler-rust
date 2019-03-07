@@ -1,4 +1,4 @@
-# CLR Profiler in Rust!
+# CLR Profiler in Rust! (A work in progress. Please don't read. This is basically placeholder text)
 
 The CLR is cool. Rust is cool. Profiling is cool. All together 
 
@@ -38,7 +38,7 @@ Everything above is probably a complete lie and I am working to get this working
 
 ## Authors
 
-* **Maté Antunovic** - Inspired by working with profilers at [Raygun Limited](https://www.raygun.com).
+* **Maté Antunovic** - Inspired by working with profilers at [Raygun Limited](https://www.raygun.com)
 
 ## License
 

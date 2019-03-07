@@ -1,0 +1,45 @@
+# CLR Profiler in Rust!
+
+The CLR is cool. Rust is cool. Profiling is cool. All together 
+
+## Getting Started
+
+To profile a CLR program, you will will need to build the project with Cargo 
+
+`cargo build`
+
+The profiler DLL is located at `target/debug/clr_profiler_rust.dll`. You need to add a CLSID entry to the registry and register the DLL. That's just to allow Windows and the CLR runtime to attach the profiler.
+
+Open `regedit.exe` and create an entry with the key:
+
+``HKEY_CLASSES_ROOT\CLSID\{A_GUID_OR_UNIQUE_ID}\InProcServer32`
+
+Set the (Default) value to the full path of your DLL e.g. `C:\Users\you\clr-profiler-rust\target\debug\clr_profiler_rust.dll`. Add a String value with the key `ThreadingModel` set to `Apartment`.
+
+Now simply register the DLL with  `regsvr32 clr_profiler_rust.dll`
+
+### Prerequisites
+
+* Rust 1.31 or later
+* Visual Studio build tools
+* Windows 10 
+
+Running a program with the profiler is as easy as setting environment variables and watching it run!
+
+```
+set COR_PROFILER={EEE8C349-2BB1-411F-93CE-0364C5F9FD9F}
+set COR_ENABLE_PROFILING=1
+YourApplication.exe
+```
+
+## Work in Progres
+
+Everything above is probably a complete lie and I am working to get this working!
+
+## Authors
+
+* **Maté Antunovic** - Inspired by working with profilers at [Raygun Limited](https://www.raygun.com).
+
+## License
+
+This project is licensed under the MIT License

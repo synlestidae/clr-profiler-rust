@@ -25,20 +25,11 @@ pub unsafe  extern "C" fn Initialize(pICorProfilerInfoUnk: *mut u8) -> HResult {
     0
 }
 
-/*#[no_mangle]
-pub unsafe extern "C" fn AppDomainCreationFinished(appDomainId: AppDomainID, hrStatus: HResult) -> HResult {
-    println!("App domain creation was finished!");
-	0
-}*/
-
-type ThisPtr = *mut u8;
-type Ulong = u64;
-
-		pub unsafe extern "C" fn AddRef(ptr: ThisPtr) -> ULONG {
+		pub unsafe extern "C" fn AddRef(ptr: ThisPtr) -> Ulong {
 			unimplemented!()
 		}
 
-		pub unsafe extern "C" fn Release(ptr: ThisPtr) -> Hresult {
+		pub unsafe extern "C" fn Release(ptr: ThisPtr) -> HResult {
 			unimplemented!()
 		}
         
@@ -169,48 +160,48 @@ type Ulong = u64;
             //ICorProfilerCallback * This,
             ///* [in] */ FunctionID functionId);
         
-        pub unsafe extern "C" fn JITCompilationStarted(ptr: ThisPtr, functionId: FunctionID, fIsSafeToBlock: BOOL) -> HResult {
+        pub unsafe extern "C" fn JITCompilationStarted(ptr: ThisPtr, functionId: FunctionID, fIsSafeToBlock: Bool) -> HResult {
 			unimplemented!()
 		}
             //ICorProfilerCallback * This,
             ///* [in] */ FunctionID functionId,
-            ///* [in] */ BOOL fIsSafeToBlock);
+            ///* [in] */ Bool fIsSafeToBlock);
         
-        pub unsafe extern "C" fn JITCompilationFinished(ptr: ThisPtr, functionId: FunctionID, hrStatus: HResult, fIsSafeToBlock: BOOL) -> HResult {
+        pub unsafe extern "C" fn JITCompilationFinished(ptr: ThisPtr, functionId: FunctionID, hrStatus: HResult, fIsSafeToBlock: Bool) -> HResult {
 			unimplemented!()
 		}
             //ICorProfilerCallback * This,
             ///* [in] */ FunctionID functionId,
             ///* [in] */ HResult hrStatus,
-            ///* [in] */ BOOL fIsSafeToBlock);
+            ///* [in] */ Bool fIsSafeToBlock);
         
-        pub unsafe extern "C" fn JITCachedFunctionSearchStarted(ptr: ThisPtr, functionId: FunctionID, mut* BOOL pbUseCachedFunction) -> HResult {
+        pub unsafe extern "C" fn JITCachedFunctionSearchStarted(ptr: ThisPtr, functionId: FunctionID, pbUseCachedFunction: *mut Bool) -> HResult {
 			unimplemented!()
 		}
             //ICorProfilerCallback * This,
             ///* [in] */ FunctionID functionId,
-            ///* [out] */ BOOL *pbUseCachedFunction);
+            ///* [out] */ Bool *pbUseCachedFunction);
         
-        pub unsafe extern "C" fn JITCachedFunctionSearchFinished(ptr: ThisPtr, functionId: FunctionID, result: COR_PRF_JIT_CACHE) -> HResult {
+        pub unsafe extern "C" fn JITCachedFunctionSearchFinished(ptr: ThisPtr, functionId: FunctionID, result: CorPrfJITCache) -> HResult {
 			unimplemented!()
 		}
             //ICorProfilerCallback * This,
             ///* [in] */ FunctionID functionId,
-            ///* [in] */ COR_PRF_JIT_CACHE result);
+            ///* [in] */ CorPrfJITCache result);
         
-        pub unsafe extern "C" fn JITFunctionPitched(ptr: ThisPtr, functionId: FunctionId) -> HResult {
+        pub unsafe extern "C" fn JITFunctionPitched(ptr: ThisPtr, functionId: FunctionID) -> HResult {
 			unimplemented!()
 		}
             //ICorProfilerCallback * This,
             ///* [in] */ FunctionID functionId);
         
-        pub unsafe extern "C" fn JITInlining(ptr: ThisPtr, calledId: FunctionId, calleeId: FunctionId, pfShouldInline: mut* BOOL) -> HResult {
+        pub unsafe extern "C" fn JITInlining(ptr: ThisPtr, calledId: FunctionID, calleeId: FunctionID, pfShouldInline: *mut Bool) -> HResult {
 			unimplemented!()
 		}
             //ICorProfilerCallback * This,
             ///* [in] */ FunctionID callerId,
             ///* [in] */ FunctionID calleeId,
-            ///* [out] */ BOOL *pfShouldInline);
+            ///* [out] */ Bool *pfShouldInline);
         
         pub unsafe extern "C" fn ThreadCreated(ptr: ThisPtr, threadId: ThreadID) -> HResult {
 			unimplemented!()
@@ -224,7 +215,7 @@ type Ulong = u64;
             //ICorProfilerCallback * This,
             ///* [in] */ ThreadID threadId);
         
-        pub unsafe extern "C" fn ThreadAssignedToOSThread(ptr: ThisPtr, managedThreadID: ThreadID, DWORD osThreadId) -> HResult {
+        pub unsafe extern "C" fn ThreadAssignedToOSThread(ptr: ThisPtr, managedThreadID: ThreadID, osThreadId: DWord) -> HResult {
 			unimplemented!()
 		}
             //ICorProfilerCallback * This,
@@ -236,31 +227,31 @@ type Ulong = u64;
 		}
             //ICorProfilerCallback * This);
         
-        pub unsafe extern "C" fn RemotingClientSendingMessage(ptr: ThisPtr, pCookie: mut* Guid, fIsAsync: BOOL) -> HResult {
+        pub unsafe extern "C" fn RemotingClientSendingMessage(ptr: ThisPtr, pCookie: *mut Guid, fIsAsync: Bool) -> HResult {
 			unimplemented!()
 		}
             //ICorProfilerCallback * This,
             ///* [in] */ GUID *pCookie,
-            ///* [in] */ BOOL fIsAsync);
+            ///* [in] */ Bool fIsAsync);
         
-        pub unsafe extern "C" fn RemotingClientReceivingReply(ptr: ThisPtr, pCookie: mut* Guid, fIsAsync: BOOL) -> HResult {
+        pub unsafe extern "C" fn RemotingClientReceivingReply(ptr: ThisPtr, pCookie: *mut Guid, fIsAsync: Bool) -> HResult {
 			unimplemented!()
 		}
             //ICorProfilerCallback * This,
             ///* [in] */ GUID *pCookie,
-            ///* [in] */ BOOL fIsAsync);
+            ///* [in] */ Bool fIsAsync);
         
         pub unsafe extern "C" fn RemotingClientInvocationFinished(ptr: ThisPtr) -> HResult {
 			unimplemented!()
 		}
             //ICorProfilerCallback * This);
         
-        pub unsafe extern "C" fn RemotingServerReceivingMessage(ptr: ThisPtr, pCookie: mut* Guid, fIsAsync: BOOL) -> HResult {
+        pub unsafe extern "C" fn RemotingServerReceivingMessage(ptr: ThisPtr, pCookie: *mut Guid, fIsAsync: Bool) -> HResult {
 			unimplemented!()
 		}
             //ICorProfilerCallback * This,
             ///* [in] */ GUID *pCookie,
-            ///* [in] */ BOOL fIsAsync);
+            ///* [in] */ Bool fIsAsync);
         
         pub unsafe extern "C" fn RemotingServerInvocationStarted(ptr: ThisPtr) -> HResult {
 			unimplemented!()
@@ -272,32 +263,32 @@ type Ulong = u64;
 		}
             //ICorProfilerCallback * This);
         
-        pub unsafe extern "C" fn RemotingServerSendingReply(ptr: ThisPtr, pCookie: mut* Guid, fIsAsync: BOOL) -> HResult {
+        pub unsafe extern "C" fn RemotingServerSendingReply(ptr: ThisPtr, pCookie: *mut Guid, fIsAsync: Bool) -> HResult {
 			unimplemented!()
 		}
             //ICorProfilerCallback * This,
             ///* [in] */ GUID *pCookie,
-            ///* [in] */ BOOL fIsAsync);
+            ///* [in] */ Bool fIsAsync);
         
-        pub unsafe extern "C" fn UnmanagedToManagedTransition(ptr: ThisPtr, FunctionID functionId, reason: COR_PRF_TRANSITION_REASON ) -> HResult {
+        pub unsafe extern "C" fn UnmanagedToManagedTransition(ptr: ThisPtr, functionId: FunctionID, reason: CorPrfTransitionReason ) -> HResult {
 			unimplemented!()
 		}
             //ICorProfilerCallback * This,
             ///* [in] */ FunctionID functionId,
-            ///* [in] */ COR_PRF_TRANSITION_REASON reason);
+            ///* [in] */ CorPrfTransitionReason reason);
         
-        pub unsafe extern "C" fn ManagedToUnmanagedTransition(ptr: ThisPtr, functionId: FunctionID, reason: COR_PRF_TRANSITION_REASON) -> HResult {
+        pub unsafe extern "C" fn ManagedToUnmanagedTransition(ptr: ThisPtr, functionId: FunctionID, reason: CorPrfTransitionReason) -> HResult {
 			unimplemented!()
 		}
             //ICorProfilerCallback * This,
             ///* [in] */ FunctionID functionId,
-            ///* [in] */ COR_PRF_TRANSITION_REASON reason);
+            ///* [in] */ CorPrfTransitionReason reason);
         
-        pub unsafe extern "C" fn RuntimeSuspendStarted(ptr: ThisPtr, suspendReason: COR_PRF_SUSPEND_REASON) -> HResult {
+        pub unsafe extern "C" fn RuntimeSuspendStarted(ptr: ThisPtr, suspendReason: CorPrfSuspendReason) -> HResult {
 			unimplemented!()
 		}
             //ICorProfilerCallback * This,
-            ///* [in] */ COR_PRF_SUSPEND_REASON suspendReason);
+            ///* [in] */ CorPrfSuspendReason suspendReason);
         
         pub unsafe extern "C" fn RuntimeSuspendFinished(ptr: ThisPtr) -> HResult {
 			unimplemented!()
@@ -331,14 +322,14 @@ type Ulong = u64;
             //ICorProfilerCallback * This,
             ///* [in] */ ThreadID threadId);
         
-        pub unsafe extern "C" fn MovedReferences(ptr: ThisPtr, cMovedObjectIDRanges: ULONG, oldObjectIDRangeStart: *mut ObjectID, newObjectIDRangeStart: *mut ObjectID, cObjectIDRangeLength: ULONG) -> HResult {
+        pub unsafe extern "C" fn MovedReferences(ptr: ThisPtr, cMovedObjectIDRanges: Ulong, oldObjectIDRangeStart: *mut ObjectID, newObjectIDRangeStart: *mut ObjectID, cObjectIDRangeLength: Ulong) -> HResult {
 			unimplemented!()
 		}
             //ICorProfilerCallback * This,
-            ///* [in] */ ULONG cMovedObjectIDRanges,
+            ///* [in] */ Ulong cMovedObjectIDRanges,
             ///* [size_is][in] */ ObjectID oldObjectIDRangeStart[  ],
             ///* [size_is][in] */ ObjectID newObjectIDRangeStart[  ],
-            ///* [size_is][in] */ ULONG cObjectIDRangeLength[  ]);
+            ///* [size_is][in] */ Ulong cObjectIDRangeLength[  ]);
         
         pub unsafe extern "C" fn ObjectAllocated(ptr: ThisPtr, objectId: ObjectID, classID: ClassID) -> HResult {
 			unimplemented!()
@@ -347,28 +338,28 @@ type Ulong = u64;
             ///* [in] */ ObjectID objectId,
             ///* [in] */ ClassID classId);
         
-        pub unsafe extern "C" fn ObjectsAllocatedByClass(ptr: ThisPtr, classIds: *mut ClassID, cObjects: *mut ULONG) -> HResult {
+        pub unsafe extern "C" fn ObjectsAllocatedByClass(ptr: ThisPtr, classIds: *mut ClassID, cObjects: *mut Ulong) -> HResult {
 			unimplemented!()
 		}
             //ICorProfilerCallback * This,
-            ///* [in] */ ULONG cClassCount,
+            ///* [in] */ Ulong cClassCount,
             ///* [size_is][in] */ ClassID classIds[  ],
-            ///* [size_is][in] */ ULONG cObjects[  ]);
+            ///* [size_is][in] */ Ulong cObjects[  ]);
         
-        pub unsafe extern "C" fn ObjectReferences(ptr: ThisPtr, objectId: ObjectID, classId: ClassID, cObjectRefs: ULONG, objectIdRefIds: *mut ObjectID) -> HResult {
+        pub unsafe extern "C" fn ObjectReferences(ptr: ThisPtr, objectId: ObjectID, classId: ClassID, cObjectRefs: Ulong, objectIdRefIds: *mut ObjectID) -> HResult {
 			unimplemented!()
 		}
             //ICorProfilerCallback * This,
             ///* [in] */ ObjectID objectId,
             ///* [in] */ ClassID classId,
-            ///* [in] */ ULONG cObjectRefs,
+            ///* [in] */ Ulong cObjectRefs,
             ///* [size_is][in] */ ObjectID objectRefIds[  ]);
         
-        pub unsafe extern "C" fn RootReferences(ptr: ThisPtr, cRootRefs: ULONG, rootRefIds: *mut ObjectID) -> HResult {
+        pub unsafe extern "C" fn RootReferences(ptr: ThisPtr, cRootRefs: Ulong, rootRefIds: *mut ObjectID) -> HResult {
 			unimplemented!()
 		}
             //ICorProfilerCallback * This,
-            ///* [in] */ ULONG cRootRefs,
+            ///* [in] */ Ulong cRootRefs,
             ///* [size_is][in] */ ObjectID rootRefIds[  ]);
         
         pub unsafe extern "C" fn ExceptionThrown(ptr: ThisPtr, thrownObjectId: ObjectID) -> HResult {
@@ -451,21 +442,21 @@ type Ulong = u64;
 		}
             //ICorProfilerCallback * This);
         
-        pub unsafe extern "C" fn COMClassicVTableCreated(ptr: ThisPtr, classId: ClassID, implementedIID: REFGUID, pVTable: *mut u8, cSlots: ULONG) -> HResult {
+        pub unsafe extern "C" fn COMClassicVTableCreated(ptr: ThisPtr, classId: ClassID, implementedIID: RefGuid, pVTable: *mut u8, cSlots: Ulong) -> HResult {
 			unimplemented!()
 		}
             //ICorProfilerCallback * This,
             ///* [in] */ ClassID wrappedClassId,
-            ///* [in] */ REFGUID implementedIID,
+            ///* [in] */ RefGuid implementedIID,
             ///* [in] */ void *pVTable,
-            ///* [in] */ ULONG cSlots);
+            ///* [in] */ Ulong cSlots);
         
-        pub unsafe extern "C" fn COMClassicVTableDestroyed(ptr: ThisPtr, wrappedCLassId: ClassID, implementedIID: ClassID, implementedIID: REFGUID, pVTable: *mut u8) -> HResult {
+        pub unsafe extern "C" fn COMClassicVTableDestroyed(ptr: ThisPtr, wrappedCLassId: ClassID, implementedIID: RefGuid, pVTable: *mut u8) -> HResult {
 			unimplemented!()
 		}
             //ICorProfilerCallback * This,
             ///* [in] */ ClassID wrappedClassId,
-            ///* [in] */ REFGUID implementedIID,
+            ///* [in] */ RefGuid implementedIID,
             ///* [in] */ void *pVTable);
         
         pub unsafe extern "C" fn ExceptionCLRCatcherFound(ptr: ThisPtr) -> HResult {

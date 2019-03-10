@@ -14,32 +14,24 @@ pub extern "C" fn DllRegisterServer() -> HResult {
 }
 
 #[no_mangle]
-pub extern "C" fn test() {
-    // nothing
-
-}
-
-#[no_mangle]
-pub unsafe  extern "C" fn Initialize(pICorProfilerInfoUnk: *mut u8) -> HResult {
-    println!("Initialized!");
-    0
-}
-
 		pub unsafe extern "C" fn AddRef(ptr: ThisPtr) -> Ulong {
 			unimplemented!()
 		}
 
+#[no_mangle]
 		pub unsafe extern "C" fn Release(ptr: ThisPtr) -> HResult {
 			unimplemented!()
 		}
-        
+
+#[no_mangle]
         pub unsafe extern "C" fn Shutdown(ptr: ThisPtr) -> HResult {
 			unimplemented!()
 		}
         
-        //pub unsafe extern "C" fn Initialize(ptr: ThisPtr, pICorProfilerInfoUnk: IUnknownPtr) -> HResult ( 
-	//		unimplemented!()
-//		}
+#[no_mangle]
+pub unsafe extern "C" fn Initialize(ptr: ThisPtr, pICorProfilerInfoUnk: IUnknownPtr) -> HResult {
+		unimplemented!()
+}
             // ICorProfilerCallback * This,
             // /* [in] */  {
         

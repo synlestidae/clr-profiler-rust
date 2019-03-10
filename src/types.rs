@@ -13,6 +13,7 @@ pub type ModuleID = UIntPtr;
 pub type ObjectID = UIntPtr;
 pub type RefGuid = *mut Guid;
 pub type ThreadID = UIntPtr;
+pub type IUnknownPtr = *mut usize;
 pub type UIntPtr = usize;
 pub type Ulong = u64;
 pub type ThisPtr = *mut usize;

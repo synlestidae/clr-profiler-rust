@@ -1,4 +1,3 @@
-
 pub type AssemblyID = UIntPtr;
 pub type Bool = i32;
 pub type ClassID = UIntPtr;
@@ -17,4 +16,3 @@ pub type IUnknownPtr = *mut usize;
 pub type UIntPtr = usize;
 pub type Ulong = u64;
 pub type ThisPtr = *mut usize;
-

@@ -13,6 +13,8 @@ pub extern "C" fn DllRegisterServer() -> HResult {
     0
 }
 
+// ICorProfilerCallback
+
 #[no_mangle]
 pub unsafe extern "C" fn AddRef(ptr: ThisPtr) -> Ulong {
     unimplemented!()
@@ -665,5 +667,67 @@ pub unsafe extern "C" fn ExceptionCLRCatcherFound(ptr: ThisPtr) -> HResult {
 
 #[no_mangle]
 pub unsafe extern "C" fn ExceptionCLRCatcherExecute(ptr: ThisPtr) -> HResult {
+    unimplemented!()
+}
+
+
+// ICorProfilerCallback2
+pub unsafe extern "C" fn ThreadNameChanged( 
+            /* [in] */ threadId: ThreadID ,
+            /* [in] */ cchName: Ulong,
+            /* [annotation][in] */ 
+            name: *mut u16) -> HResult {
+    unimplemented!()
+}
+
+/*pub unsafe extern "C" fn GarbageCollectionStarted( 
+            /* [in] */ cGenerations: usize,
+            /* [size_is][in] */ generationCollected: *mut Bool,
+            /* [in] */ reason: CorPrfGcReason) {
+    unimplemented!()
+}*/
+        
+pub unsafe extern "C" fn GarbageCollectionStarted( 
+            /* [in] */ cGenerations: usize ,
+            /* [size_is][in] */ generationCollected: *mut Bool,
+            /* [in] */ reason: CorPrfGcReason)
+{
+    unimplemented!()
+}
+
+pub unsafe extern "C" fn SurvivingReferences( 
+            /* [in] */ cSurvivingObjectIDRanges: Ulong,
+            /* [size_is][in] */ objectIDRangeStart: *mut ObjectID,
+            /* [size_is][in] */ cObjectIDRangeLength: Ulong) {
+    unimplemented!()
+}
+        
+pub unsafe extern "C" fn GarbageCollectionFinished() {
+    unimplemented!()
+}
+        
+pub unsafe extern "C" fn FinalizeableObjectQueued( 
+            /* [in] */ finalizerFlags: DWord,
+            /* [in] */ objectID: ObjectID ) {
+    unimplemented!()
+}
+        
+pub unsafe extern "C" fn RootReferences2( 
+            /* [in] */ cRootRefs: Ulong,
+            /* [size_is][in] */ rootRefIds: *mut ObjectID,
+            /* [size_is][in] */ rootKinds: *mut CorPrfGcRootKind,
+            /* [size_is][in] */ rootFlags: *mut CorPrfGcRootFlags,
+            /* [size_is][in] */ rootIds: UIntPtr) {
+    unimplemented!()
+}
+
+pub unsafe extern "C" fn HandleCreated(
+            /* [in] */ handleId: GCHandleID ,
+            /* [in] */ initialObjectId: ObjectID) -> HResult {
+    unimplemented!()
+}
+
+pub unsafe extern "C" fn HandleDestroyed(
+    /* [in] */ handleId: GCHandleID ) {
     unimplemented!()
 }

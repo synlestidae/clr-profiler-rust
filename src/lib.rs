@@ -35,6 +35,7 @@ pub unsafe extern "C" fn Initialize(ptr: ThisPtr, pICorProfilerInfoUnk: IUnknown
 // ICorProfilerCallback * This,
 // /* [in] */  {
 
+#[no_mangle]
 pub unsafe extern "C" fn AppDomainCreationStarted(
     ptr: ThisPtr,
     appDomainId: AppDomainID,
@@ -44,6 +45,7 @@ pub unsafe extern "C" fn AppDomainCreationStarted(
 //ICorProfilerCallback * This,
 // /* [in] */ AppDomainID appDomainId);
 
+#[no_mangle]
 pub unsafe extern "C" fn AppDomainCreationFinished(
     ptr: ThisPtr,
     appDomainID: AppDomainID,
@@ -55,6 +57,7 @@ pub unsafe extern "C" fn AppDomainCreationFinished(
 ///* [in] */ AppDomainID appDomainId,
 // /* [in] */ HResult hrStatus);
 
+#[no_mangle]
 pub unsafe extern "C" fn AppDomainShutdownStarted(
     ptr: ThisPtr,
     appDomainID: AppDomainID,
@@ -64,6 +67,7 @@ pub unsafe extern "C" fn AppDomainShutdownStarted(
 //ICorProfilerCallback * This,
 ///* [in] */ AppDomainID appDomainId);
 
+#[no_mangle]
 pub unsafe extern "C" fn AppDomainShutdownFinished(
     ptr: ThisPtr,
     appDomainID: AppDomainID,
@@ -75,12 +79,14 @@ pub unsafe extern "C" fn AppDomainShutdownFinished(
 ///* [in] */ AppDomainID appDomainId,
 ///* [in] */ HResult hrStatus);
 
+#[no_mangle]
 pub unsafe extern "C" fn AssemblyLoadStarted(ptr: ThisPtr, assemblyId: AssemblyID) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This,
 ///* [in] */ AssemblyID assemblyId);
 
+#[no_mangle]
 pub unsafe extern "C" fn AssemblyLoadFinished(ptr: ThisPtr, assemblyID: AssemblyID) -> HResult {
     unimplemented!()
 }
@@ -88,12 +94,14 @@ pub unsafe extern "C" fn AssemblyLoadFinished(ptr: ThisPtr, assemblyID: Assembly
 ///* [in] */ AssemblyID assemblyId,
 ///* [in] */ HResult hrStatus);
 
+#[no_mangle]
 pub unsafe extern "C" fn AssemblyUnloadStarted(ptr: ThisPtr, assemblyID: AssemblyID) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This,
 ///* [in] */ AssemblyID assemblyId);
 
+#[no_mangle]
 pub unsafe extern "C" fn AssemblyUnloadFinished(
     ptr: ThisPtr,
     assemblyID: AssemblyID,
@@ -105,12 +113,14 @@ pub unsafe extern "C" fn AssemblyUnloadFinished(
 ///* [in] */ AssemblyID assemblyId,
 ///* [in] */ HResult hrStatus);
 
+#[no_mangle]
 pub unsafe extern "C" fn ModuleLoadStarted(ptr: ThisPtr, moduleId: ModuleID) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This,
 ///* [in] */ ModuleID moduleId);
 
+#[no_mangle]
 pub unsafe extern "C" fn ModuleLoadFinished(ptr: ThisPtr) -> HResult {
     unimplemented!()
 }
@@ -118,12 +128,14 @@ pub unsafe extern "C" fn ModuleLoadFinished(ptr: ThisPtr) -> HResult {
 ///* [in] */ ModuleID moduleId,
 ///* [in] */ HResult hrStatus);
 
+#[no_mangle]
 pub unsafe extern "C" fn ModuleUnloadStarted(ptr: ThisPtr, moduleID: ModuleID) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This,
 ///* [in] */ ModuleID moduleId);
 
+#[no_mangle]
 pub unsafe extern "C" fn ModuleUnloadFinished(
     ptr: ThisPtr,
     moduleID: ModuleID,
@@ -135,6 +147,7 @@ pub unsafe extern "C" fn ModuleUnloadFinished(
 ///* [in] */ ModuleID moduleId,
 ///* [in] */ HResult hrStatus);
 
+#[no_mangle]
 pub unsafe extern "C" fn ModuleAttachedToAssembly(
     ptr: ThisPtr,
     moduleID: ModuleID,
@@ -146,12 +159,14 @@ pub unsafe extern "C" fn ModuleAttachedToAssembly(
 ///* [in] */ ModuleID moduleId,
 ///* [in] */ AssemblyID AssemblyId);
 
+#[no_mangle]
 pub unsafe extern "C" fn ClassLoadStarted(ptr: ThisPtr, classID: ClassID) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This,
 ///* [in] */ ClassID classId);
 
+#[no_mangle]
 pub unsafe extern "C" fn ClassLoadFinished(
     ptr: ThisPtr,
     classID: ClassID,
@@ -163,12 +178,14 @@ pub unsafe extern "C" fn ClassLoadFinished(
 ///* [in] */ ClassID classId,
 ///* [in] */ HResult hrStatus);
 
+#[no_mangle]
 pub unsafe extern "C" fn ClassUnloadStarted(ptr: ThisPtr, classID: ClassID) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This,
 ///* [in] */ ClassID classId);
 
+#[no_mangle]
 pub unsafe extern "C" fn ClassUnloadFinished(
     ptr: ThisPtr,
     classID: ClassID,
@@ -180,12 +197,14 @@ pub unsafe extern "C" fn ClassUnloadFinished(
 ///* [in] */ ClassID classId,
 ///* [in] */ HResult hrStatus);
 
+#[no_mangle]
 pub unsafe extern "C" fn FunctionUnloadStarted(ptr: ThisPtr, functionID: FunctionID) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This,
 ///* [in] */ FunctionID functionId);
 
+#[no_mangle]
 pub unsafe extern "C" fn JITCompilationStarted(
     ptr: ThisPtr,
     functionId: FunctionID,
@@ -197,6 +216,7 @@ pub unsafe extern "C" fn JITCompilationStarted(
 ///* [in] */ FunctionID functionId,
 ///* [in] */ Bool fIsSafeToBlock);
 
+#[no_mangle]
 pub unsafe extern "C" fn JITCompilationFinished(
     ptr: ThisPtr,
     functionId: FunctionID,
@@ -210,6 +230,7 @@ pub unsafe extern "C" fn JITCompilationFinished(
 ///* [in] */ HResult hrStatus,
 ///* [in] */ Bool fIsSafeToBlock);
 
+#[no_mangle]
 pub unsafe extern "C" fn JITCachedFunctionSearchStarted(
     ptr: ThisPtr,
     functionId: FunctionID,
@@ -221,6 +242,7 @@ pub unsafe extern "C" fn JITCachedFunctionSearchStarted(
 ///* [in] */ FunctionID functionId,
 ///* [out] */ Bool *pbUseCachedFunction);
 
+#[no_mangle]
 pub unsafe extern "C" fn JITCachedFunctionSearchFinished(
     ptr: ThisPtr,
     functionId: FunctionID,
@@ -232,12 +254,14 @@ pub unsafe extern "C" fn JITCachedFunctionSearchFinished(
 ///* [in] */ FunctionID functionId,
 ///* [in] */ CorPrfJITCache result);
 
+#[no_mangle]
 pub unsafe extern "C" fn JITFunctionPitched(ptr: ThisPtr, functionId: FunctionID) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This,
 ///* [in] */ FunctionID functionId);
 
+#[no_mangle]
 pub unsafe extern "C" fn JITInlining(
     ptr: ThisPtr,
     calledId: FunctionID,
@@ -251,18 +275,21 @@ pub unsafe extern "C" fn JITInlining(
 ///* [in] */ FunctionID calleeId,
 ///* [out] */ Bool *pfShouldInline);
 
+#[no_mangle]
 pub unsafe extern "C" fn ThreadCreated(ptr: ThisPtr, threadId: ThreadID) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This,
 ///* [in] */ ThreadID threadId);
 
+#[no_mangle]
 pub unsafe extern "C" fn ThreadDestroyed(ptr: ThisPtr, threadID: ThreadID) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This,
 ///* [in] */ ThreadID threadId);
 
+#[no_mangle]
 pub unsafe extern "C" fn ThreadAssignedToOSThread(
     ptr: ThisPtr,
     managedThreadID: ThreadID,
@@ -274,11 +301,13 @@ pub unsafe extern "C" fn ThreadAssignedToOSThread(
 ///* [in] */ ThreadID managedThreadId,
 ///* [in] */ DWORD osThreadId);
 
+#[no_mangle]
 pub unsafe extern "C" fn RemotingClientInvocationStarted(ptr: ThisPtr) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This);
 
+#[no_mangle]
 pub unsafe extern "C" fn RemotingClientSendingMessage(
     ptr: ThisPtr,
     pCookie: *mut Guid,
@@ -290,6 +319,7 @@ pub unsafe extern "C" fn RemotingClientSendingMessage(
 ///* [in] */ GUID *pCookie,
 ///* [in] */ Bool fIsAsync);
 
+#[no_mangle]
 pub unsafe extern "C" fn RemotingClientReceivingReply(
     ptr: ThisPtr,
     pCookie: *mut Guid,
@@ -301,11 +331,13 @@ pub unsafe extern "C" fn RemotingClientReceivingReply(
 ///* [in] */ GUID *pCookie,
 ///* [in] */ Bool fIsAsync);
 
+#[no_mangle]
 pub unsafe extern "C" fn RemotingClientInvocationFinished(ptr: ThisPtr) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This);
 
+#[no_mangle]
 pub unsafe extern "C" fn RemotingServerReceivingMessage(
     ptr: ThisPtr,
     pCookie: *mut Guid,
@@ -317,16 +349,19 @@ pub unsafe extern "C" fn RemotingServerReceivingMessage(
 ///* [in] */ GUID *pCookie,
 ///* [in] */ Bool fIsAsync);
 
+#[no_mangle]
 pub unsafe extern "C" fn RemotingServerInvocationStarted(ptr: ThisPtr) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This);
 
+#[no_mangle]
 pub unsafe extern "C" fn RemotingServerInvocationReturned(ptr: ThisPtr) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This);
 
+#[no_mangle]
 pub unsafe extern "C" fn RemotingServerSendingReply(
     ptr: ThisPtr,
     pCookie: *mut Guid,
@@ -338,6 +373,7 @@ pub unsafe extern "C" fn RemotingServerSendingReply(
 ///* [in] */ GUID *pCookie,
 ///* [in] */ Bool fIsAsync);
 
+#[no_mangle]
 pub unsafe extern "C" fn UnmanagedToManagedTransition(
     ptr: ThisPtr,
     functionId: FunctionID,
@@ -349,6 +385,7 @@ pub unsafe extern "C" fn UnmanagedToManagedTransition(
 ///* [in] */ FunctionID functionId,
 ///* [in] */ CorPrfTransitionReason reason);
 
+#[no_mangle]
 pub unsafe extern "C" fn ManagedToUnmanagedTransition(
     ptr: ThisPtr,
     functionId: FunctionID,
@@ -360,6 +397,7 @@ pub unsafe extern "C" fn ManagedToUnmanagedTransition(
 ///* [in] */ FunctionID functionId,
 ///* [in] */ CorPrfTransitionReason reason);
 
+#[no_mangle]
 pub unsafe extern "C" fn RuntimeSuspendStarted(
     ptr: ThisPtr,
     suspendReason: CorPrfSuspendReason,
@@ -369,38 +407,45 @@ pub unsafe extern "C" fn RuntimeSuspendStarted(
 //ICorProfilerCallback * This,
 ///* [in] */ CorPrfSuspendReason suspendReason);
 
+#[no_mangle]
 pub unsafe extern "C" fn RuntimeSuspendFinished(ptr: ThisPtr) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This);
 
+#[no_mangle]
 pub unsafe extern "C" fn RuntimeSuspendAborted(ptr: ThisPtr) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This);
 
+#[no_mangle]
 pub unsafe extern "C" fn RuntimeResumeStarted(ptr: ThisPtr) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This);
 
+#[no_mangle]
 pub unsafe extern "C" fn RuntimeResumeFinished(ptr: ThisPtr) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This);
 
+#[no_mangle]
 pub unsafe extern "C" fn RuntimeThreadSuspended(ptr: ThisPtr, threadId: ThreadID) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This,
 ///* [in] */ ThreadID threadId);
 
+#[no_mangle]
 pub unsafe extern "C" fn RuntimeThreadResumed(ptr: ThisPtr, threadId: ThreadID) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This,
 ///* [in] */ ThreadID threadId);
 
+#[no_mangle]
 pub unsafe extern "C" fn MovedReferences(
     ptr: ThisPtr,
     cMovedObjectIDRanges: Ulong,
@@ -416,6 +461,7 @@ pub unsafe extern "C" fn MovedReferences(
 ///* [size_is][in] */ ObjectID newObjectIDRangeStart[  ],
 ///* [size_is][in] */ Ulong cObjectIDRangeLength[  ]);
 
+#[no_mangle]
 pub unsafe extern "C" fn ObjectAllocated(
     ptr: ThisPtr,
     objectId: ObjectID,
@@ -427,6 +473,7 @@ pub unsafe extern "C" fn ObjectAllocated(
 ///* [in] */ ObjectID objectId,
 ///* [in] */ ClassID classId);
 
+#[no_mangle]
 pub unsafe extern "C" fn ObjectsAllocatedByClass(
     ptr: ThisPtr,
     classIds: *mut ClassID,
@@ -439,6 +486,7 @@ pub unsafe extern "C" fn ObjectsAllocatedByClass(
 ///* [size_is][in] */ ClassID classIds[  ],
 ///* [size_is][in] */ Ulong cObjects[  ]);
 
+#[no_mangle]
 pub unsafe extern "C" fn ObjectReferences(
     ptr: ThisPtr,
     objectId: ObjectID,
@@ -454,6 +502,7 @@ pub unsafe extern "C" fn ObjectReferences(
 ///* [in] */ Ulong cObjectRefs,
 ///* [size_is][in] */ ObjectID objectRefIds[  ]);
 
+#[no_mangle]
 pub unsafe extern "C" fn RootReferences(
     ptr: ThisPtr,
     cRootRefs: Ulong,
@@ -465,12 +514,14 @@ pub unsafe extern "C" fn RootReferences(
 ///* [in] */ Ulong cRootRefs,
 ///* [size_is][in] */ ObjectID rootRefIds[  ]);
 
+#[no_mangle]
 pub unsafe extern "C" fn ExceptionThrown(ptr: ThisPtr, thrownObjectId: ObjectID) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This,
 ///* [in] */ ObjectID thrownObjectId);
 
+#[no_mangle]
 pub unsafe extern "C" fn ExceptionSearchFunctionEnter(
     ptr: ThisPtr,
     functionId: FunctionID,
@@ -480,11 +531,13 @@ pub unsafe extern "C" fn ExceptionSearchFunctionEnter(
 //ICorProfilerCallback * This,
 ///* [in] */ FunctionID functionId);
 
+#[no_mangle]
 pub unsafe extern "C" fn ExceptionSearchFunctionLeave(ptr: ThisPtr) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This);
 
+#[no_mangle]
 pub unsafe extern "C" fn ExceptionSearchFilterEnter(
     ptr: ThisPtr,
     functionId: FunctionID,
@@ -494,11 +547,13 @@ pub unsafe extern "C" fn ExceptionSearchFilterEnter(
 //ICorProfilerCallback * This,
 ///* [in] */ FunctionID functionId);
 
+#[no_mangle]
 pub unsafe extern "C" fn ExceptionSearchFilterLeave(ptr: ThisPtr) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This);
 
+#[no_mangle]
 pub unsafe extern "C" fn ExceptionSearchCatcherFound(
     ptr: ThisPtr,
     functionId: FunctionID,
@@ -508,18 +563,21 @@ pub unsafe extern "C" fn ExceptionSearchCatcherFound(
 //ICorProfilerCallback * This,
 ///* [in] */ FunctionID functionId);
 
+#[no_mangle]
 pub unsafe extern "C" fn ExceptionOSHandlerEnter(ptr: ThisPtr, _unused: *mut u32) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This,
 ///* [in] */ UINT_PTR __unused);
 
+#[no_mangle]
 pub unsafe extern "C" fn ExceptionOSHandlerLeave(ptr: ThisPtr, _unused: *mut u32) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This,
 ///* [in] */ UINT_PTR __unused);
 
+#[no_mangle]
 pub unsafe extern "C" fn ExceptionUnwindFunctionEnter(
     ptr: ThisPtr,
     functionId: FunctionID,
@@ -529,11 +587,13 @@ pub unsafe extern "C" fn ExceptionUnwindFunctionEnter(
 //ICorProfilerCallback * This,
 ///* [in] */ FunctionID functionId);
 
+#[no_mangle]
 pub unsafe extern "C" fn ExceptionUnwindFunctionLeave(ptr: ThisPtr) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This);
 
+#[no_mangle]
 pub unsafe extern "C" fn ExceptionUnwindFinallyEnter(
     ptr: ThisPtr,
     functionId: FunctionID,
@@ -543,11 +603,13 @@ pub unsafe extern "C" fn ExceptionUnwindFinallyEnter(
 //ICorProfilerCallback * This,
 ///* [in] */ FunctionID functionId);
 
+#[no_mangle]
 pub unsafe extern "C" fn ExceptionUnwindFinallyLeave(ptr: ThisPtr) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This);
 
+#[no_mangle]
 pub unsafe extern "C" fn ExceptionCatcherEnter(
     ptr: ThisPtr,
     functionId: FunctionID,
@@ -559,11 +621,13 @@ pub unsafe extern "C" fn ExceptionCatcherEnter(
 ///* [in] */ FunctionID functionId,
 ///* [in] */ ObjectID objectId);
 
+#[no_mangle]
 pub unsafe extern "C" fn ExceptionCatcherLeave(ptr: ThisPtr) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This);
 
+#[no_mangle]
 pub unsafe extern "C" fn COMClassicVTableCreated(
     ptr: ThisPtr,
     classId: ClassID,
@@ -579,6 +643,7 @@ pub unsafe extern "C" fn COMClassicVTableCreated(
 ///* [in] */ void *pVTable,
 ///* [in] */ Ulong cSlots);
 
+#[no_mangle]
 pub unsafe extern "C" fn COMClassicVTableDestroyed(
     ptr: ThisPtr,
     wrappedCLassId: ClassID,
@@ -592,11 +657,13 @@ pub unsafe extern "C" fn COMClassicVTableDestroyed(
 ///* [in] */ RefGuid implementedIID,
 ///* [in] */ void *pVTable);
 
+#[no_mangle]
 pub unsafe extern "C" fn ExceptionCLRCatcherFound(ptr: ThisPtr) -> HResult {
     unimplemented!()
 }
 //ICorProfilerCallback * This);
 
+#[no_mangle]
 pub unsafe extern "C" fn ExceptionCLRCatcherExecute(ptr: ThisPtr) -> HResult {
     unimplemented!()
 }
